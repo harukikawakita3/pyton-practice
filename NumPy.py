@@ -131,3 +131,69 @@
 # gray_3d = gray[:, :, np.newaxis]
 
 # print(gray_3d.shape)  # (2, 2, 1)
+
+#==============================================
+# import numpy as np
+# data = np.array([3, 5, 7, 9, 11, 13])
+# #平均値
+# mean = np.mean(data)
+# print(mean)
+# #中央値
+# median = np.median(data)
+# print(median)
+# #標準偏差
+# std = np.std(data)
+# print(std)
+# #分散
+# var = np.var(data)
+# print(var)
+# #範囲
+# range = np.max(data) - np.min(data)
+# print(range)
+
+#===========================================
+# ヒストグラム
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# data = np.random.normal(100, 20, size=200)
+
+# plt.hist(data, bins=25)
+
+# plt.xlabel('values')
+# plt.ylabel('frequency')
+
+# plt.show()
+
+#=================================================
+# import numpy as np
+# from sklearn.linear_model import LinearRegression
+# import matplotlib.pyplot as plt
+
+# x = np.array([1, 2, 3, 4, 5]).reshape((-1, 1))
+# y = np.array([2, 3, 4, 5, 6])
+
+# model = LinearRegression().fit(x, y)
+
+# plt.scatter(x, y)
+# plt.plot(x, model.predict(x), color="red")
+# plt.show()
+
+#================================================-
+# from sklearn.datasets import load_iris
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.metrics import accuracy_score
+# from sklearn.model_selection import train_test_split
+
+# iris = load_iris()
+# x = iris.data[:, 2:]
+# y = iris.target
+
+# free_clf = DecisionTreeClassifier(max_depth=2)
+# free_clf.fit(x, y)
+
+
+# X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+# y_pred = free_clf.predict(X_test)
+
+# print("Accuracy:", accuracy_score(y_test, y_pred))
