@@ -197,3 +197,26 @@
 # y_pred = free_clf.predict(X_test)
 
 # print("Accuracy:", accuracy_score(y_test, y_pred))
+
+# import numpy as np
+
+# p1 = np.array([1, 2, 3])
+# print(p1)
+
+# p2 = np.arange(start=10, stop=51, step=2)
+# print(p2)
+
+# p3 = np.eye(3)
+# print(p3)
+
+# p4 = np.random.randint(low=0, high=20, size=(3, 3))
+# print(p4)
+
+# p5 = np.hstack((array1, array2))
+# p6 = np.vstack((array1, array2))
+# p7 = array.flatten()
+# p8 = np.multiply(array1, array2)
+# p9 = np.amax(array)
+# p10 = np.diag(np.ones(shape=(6)))
+# print(p10)
+
