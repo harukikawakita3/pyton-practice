@@ -193,10 +193,37 @@ import pandas as pd
 
 # print(df.resample('W').sum())
 
-import pandas as pd
-import matplotlib.pyplot as plt
+# import pandas as pd
+# import matplotlib.pyplot as plt
 
-data = {'v': [1, 2, 3, 4, 5]}
-df = pd.DataFrame(data)
-df.plot()
-plt.show()
+# data = {'v': [1, 2, 3, 4, 5]}
+# df = pd.DataFrame(data)
+# df.plot()
+# plt.show()
+
+# import pandas as pd
+
+# df = pd.DataFrame({'date': ['2022-11-15', '2021-01-05', '2020-10-31', '2023-06-17']})
+
+# # 文字列を指定した区切り文字で分割　　　　　　　　　　　分割した要素を個々の列とする
+# df[['Year', 'Month', 'Day']] = df.date.str.split('-', expand=True)
+# print(df)
+
+# import pandas as pd
+
+# data = {'player_id': ['A001', 'B002', 'C003', 'A001', 'C003', 'B002'],
+#         'score': [15, 20, 12, 18, 25, 22]}
+
+# df = pd.DataFrame(data)
+
+# total_score = df.groupby('player_id').sum()
+# print(total_score)
+
+# import pandas as pd
+
+# df = pd.DataFrame({'item': ['apple', 'banana', 'orange'],
+#                    'price': [100, 80, 120],
+#                    'quantity': [5, 3, 8]})
+
+# df['total_price'] = df['price'] * df['quantity']
+# print(df)
