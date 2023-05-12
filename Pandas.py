@@ -141,3 +141,62 @@ import pandas as pd
 # plt.ylabel('Counts')
 # plt.legend()
 # plt.show()
+
+# import pandas as pd
+
+# df1 = pd.DataFrame({'key': ['A', 'B', 'C', 'D'],
+#                     'value': [1, 2, 3, 4]})
+# df2 = pd.DataFrame({'key': ['B', 'D', 'E', 'F'],
+#                     'value': [5, 6, 7, 8]})
+
+# merged = pd.merge(df1, df2, on='key')
+# print(merged)
+
+# import pandas as pd
+
+# data = {'name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', 'Fred'],
+#         'age': [25, 30, 45, 21, 38, 42],
+#         'gender': ['F', 'M', 'M', 'M', 'F', 'M']}
+# df = pd.DataFrame(data)
+
+# grouped = df.groupby('gender')['age'].mean()
+
+# print(grouped)
+
+# import pandas as pd
+
+# data = {'name': ['a','b','c'],
+#         'age': [10, 14, 23],
+#         'gender': ['f', 'm', 'f']}
+
+# df1 = pd.DataFrame(data)
+
+# grouped = df1.groupby('gender')['age'].mean()
+# print(grouped)
+
+# import pandas as pd
+
+# data = {'name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', 'Fred'],
+#         'age': [25, 30, 45, 21, 38, 42],
+#         'gender': ['F', 'M', 'M', 'M', 'F', 'M']}
+
+# df = pd.DataFrame(data)
+# df.set_index(['gender', 'name'], inplace=True)
+
+# print(df.loc[('F', 'Alice')])
+
+# import pandas as pd
+
+# idx = pd.date_range('20210101', periods=5, freq='D')
+# data = {'value': [1, 2, 3, 4, 5]}
+# df = pd.DataFrame(data, index=idx)
+
+# print(df.resample('W').sum())
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {'v': [1, 2, 3, 4, 5]}
+df = pd.DataFrame(data)
+df.plot()
+plt.show()
