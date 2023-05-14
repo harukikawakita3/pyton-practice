@@ -1,0 +1,3 @@
+Natural language processing is a subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data. 
+Python is widely used for natural language processing tasks, thanks to its simple syntax and powerful libraries. Some of the popular NLP libraries for Python include NLTK, spaCy, and Gensim. 
+In this task, you will build a program that reads a text file and counts how many times a specified word appears in it. You will also find the most commonly used word in a given sentence and print out all sentences that contain a certain string.
