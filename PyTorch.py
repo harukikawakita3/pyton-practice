@@ -80,14 +80,14 @@
 #         self.fc2 = torch.nn.Linear(120, 84)
 #         self.fc3 = torch.nn.Linear(84, 10)
 
-#         def forward(self, x):
-#             x = self.pool(torch.nn.functional.relu(self.conv1(x)))
-#             x = self.pool(torch.nn.functional.relu(self.conv2(2)))
-#             x = x.view(-1, 16 * 4 * 4)
-#             x = torch.nn.functional.relu(self.fc1(x))
-#             x = torch.nn.functional.relu(self.fc2(x))
-#             x = self.fc3(x)
-#             return x
+    # def forward(self, x):
+    #     x = self.pool(torch.nn.functional.relu(self.conv1(x)))
+    #     x = self.pool(torch.nn.functional.relu(self.conv2(2)))
+    #     x = x.view(-1, 16 * 4 * 4)
+    #     x = torch.nn.functional.relu(self.fc1(x))
+    #     x = torch.nn.functional.relu(self.fc2(x))
+    #     x = self.fc3(x)
+    #     return x
 
 # net = Net()
 
@@ -100,3 +100,66 @@
 
 # print(predicted_label)
 
+# import torch
+# from torch import nn
+# from torch import optim
+# from torchvision import datasets, transforms
+
+# # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# # # tensorをGPUに移す
+# # data = torch.tensor([1.0, 2.0])
+# # data = data.to(device)
+
+# # # CPU上のテンソルを作成
+# # x = torch.randn(3, 3)
+
+# # # GPUに移動
+# # device = torch.device("cuda:0")
+# # x = x.to(device)
+
+
+# transform = transforms.Compose([
+#     transforms.ToTensor(),
+#     transforms.Normalize((0.1307,), (0.3081,))
+# ])
+
+# train_dataset = datasets.MNIST(root='./mnist_data', train=True, transform=transform, download=True)
+
+# train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=64, shuffle=True)
+# test_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=64, shuffle=False)
+
+# class Net(nn.Module):
+#     def __init__(self):
+#         super(Net, self).__init__()
+#         self.fc1 = nn.Linear(784, 128)
+#         self.fc2 = nn.Linear(128, 10)
+
+#     def forward(self, x):
+#         x = x.view(-1, 784)
+#         x = torch.relu(self.fc1(x))
+#         x = self.fc2(x)
+#         return x
+
+# model = Net()
+
+# criterion = nn.CrossEntropyLoss()
+# optimizer = optim.SGD(model.parameters(), lr=0.01)
+
+# for epoch in range(5):
+#     for i, (images, labels) in enumerate(train_loader):
+#         outputs = model(images)
+#         loss = criterion(outputs, labels)
+
+#         optimizer.zero_grad()
+#         loss.backward()
+#         optimizer.step()
+
+#         print(f'Epoch {epoch+1}, Loss: {loss.item()}')
+import torch
+torch.cuda.is_available()
+
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+print(device)
+print(torch.cuda.device_count())
+print(torch.cuda.get_device_name(0))
