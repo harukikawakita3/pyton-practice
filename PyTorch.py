@@ -156,10 +156,85 @@
 #         optimizer.step()
 
 #         print(f'Epoch {epoch+1}, Loss: {loss.item()}')
-import torch
-torch.cuda.is_available()
+# import torch
+# torch.cuda.is_available()
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
-print(torch.cuda.device_count())
-print(torch.cuda.get_device_name(0))
+# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# print(device)
+# print(torch.cuda.device_count())
+# print(torch.cuda.get_device_name(0))
+# if torch.cuda.is_available():
+#     print(f'GPUが利用可能です。現在のデバイスは {torch.cuda.current_device()} で、その名前は {torch.cuda.get_device_name()} です。')
+# else:
+#     print('GPUは利用できません。')
+
+# カスタムデータセットの作成
+
+# import os
+# import torch
+# from torch.utils.data import Dataset, DataLoader
+# from torchvision.transforms import ToTensor
+# from PIL import Image
+
+# # 画像のパスとラベルを含むリストを定義
+# image_paths = ['images/bear.jpg', 'images/cake.jpg', 'images/suribachi.jpg']
+# labels = [0, 1, 0]
+# transform = ToTensor()
+
+# class CustomImageDataset(Dataset):
+#     def __init__(self, image_paths, labels, transform=None):
+#         self.image_paths = image_paths
+#         self.labels = labels
+#         self.transform = transform
+
+#     def __len__(self):
+#         return len(self.image_paths)
+    
+#     def __getitem__(self, idx):
+#         img_path = os.path.join(os.getcwd(), self.image_paths[idx])
+#         img = Image.open(img_path)
+#         if self.transform:
+#             img = self.transform(img)
+#         return img, self.labels[idx]
+        
+# dataset = CustomImageDataset(image_paths, labels, transform=transform)
+# print(dataset)
+
+# dataloader = DataLoader(dataset, batch_size=1, shuffle=True)
+
+# for inputs, labels in dataloader:
+#     print(inputs.shape, labels)
+
+#複数のGPU
+
+# import torch
+# import torch.nn as nn
+# import torch.optim as optim
+# from torchvision import datasets, transforms
+# from torch.utils.data import DataLoader
+
+# class SimpleCNN(nn.Module):
+#     def __init__(self):
+#         super(SimpleCNN, self).__init__()
+#         self.conv1 = nn.Conv2d(3, 6, 5)
+#         self.pool = nn.MaxPool2d(2, 2)
+#         self.conv2 = nn.Conv2d(6, 16, 5)
+#         self.fc1 = nn.Linear(16 * 5 * 5, 120)
+#         self.fc2 = nn.Linear(120, 84)
+#         self.fc3 = nn.Linear(84,10)
+
+#     def forward(self, x):
+#         x = self.pool(self.relu(self.conv1(x)))
+#         x = self.pool(self.relu(self.conv2(x)))
+#         x = x.view(-1, 16 * 5 * 5)
+#         x = self.relu(self.fc1(x))
+#         x = self.relu(self.fc2(x))
+#         x = self.fc3(x)
+#         return x
+
+# device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# model = SimpleCNN()
+# if torch.cuda.device_count() > 1:
+#     print("lets use", torch.cuda.device_count(), "GPU!")
+#     model = nn.DataParallel(model)
+# model.to(device)
