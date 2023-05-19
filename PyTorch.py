@@ -238,3 +238,5 @@
 #     print("lets use", torch.cuda.device_count(), "GPU!")
 #     model = nn.DataParallel(model)
 # model.to(device)
+
+
